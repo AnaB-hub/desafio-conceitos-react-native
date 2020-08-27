@@ -15,7 +15,9 @@ export default function App() {
   const [repositories, setRepositories] = useState([]);
 
   useEffect(() => {
+    console.log("antes");
     api.get("repositories").then((response) => {
+      console.log(response.data);
       setRepositories(response.data);
     });
   }, []);
@@ -37,6 +39,7 @@ export default function App() {
     <>
       <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
       <SafeAreaView style={styles.container}>
+        <Text style={styles.repository}>AAAA</Text>
         <View style={styles.repositoryContainer}>
           {repositories.map((rep) => (
             <>
